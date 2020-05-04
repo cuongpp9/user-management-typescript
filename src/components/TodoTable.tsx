@@ -32,7 +32,7 @@ export function TodoTable() {
 
 	useEffect(() => {
 		userActions.getListUser("");
-	});
+	},[]);
 
 	return (
 		<Paper className={classes.paper}>

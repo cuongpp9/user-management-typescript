@@ -19,6 +19,6 @@ export const userList = createReducer<User[]>([], {
 		return state.filter(t => t.id !== action.payload);
 	},
 	[UserActions.GET_LIST_USER_SUCCESS](state: User[], action: UserAction) {
-		return state;
+		return action.payload;
 	},
 });

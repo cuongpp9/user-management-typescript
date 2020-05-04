@@ -44,7 +44,7 @@ export function UserList() {
 								color="secondary"
 								onClick={handleAddTodo}
 							>
-								Add Todo
+								Add User
 							</Button>
 						</div>
 					</Grid>

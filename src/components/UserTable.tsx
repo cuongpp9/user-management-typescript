@@ -17,7 +17,7 @@ import * as UserActions from "../actions/user";
 import { User } from "../model";
 import { RootState } from "../reducers";
 
-export function TodoTable() {
+export function UserTable() {
 	const classes = useStyles();
 	const userList = useSelector((state: RootState) => state.userList);
 	const userActions = useActions(UserActions);

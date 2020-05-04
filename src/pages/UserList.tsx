@@ -2,7 +2,7 @@ import { AppBar, Toolbar, IconButton, Typography, Grid, Button } from "@material
 import * as React from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Theme } from "@material-ui/core/styles";
-import { TodoDialog, TodoTable } from "../components";
+import { TodoDialog, UserTable } from "../components";
 
 export function UserList() {
     const classes = useStyles();
@@ -49,7 +49,7 @@ export function UserList() {
 						</div>
 					</Grid>
 					<Grid item xs={12}>
-						<TodoTable />
+						<UserTable />
 					</Grid>
 				</Grid>
 			</div>

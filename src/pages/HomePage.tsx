@@ -1,10 +1,5 @@
-import { Typography, FormGroup, TextField, Grid, Button } from "@material-ui/core";
+import { FormGroup, TextField, Grid, Button } from "@material-ui/core";
 import * as React from "react";
-import { useSelector } from "react-redux";
-import { makeStyles } from '@material-ui/core/styles';
-import { HomeBox } from "../components";
-import { RootState } from "../reducers";
-
 
 export function HomePage() {
     return (

@@ -13,7 +13,7 @@ import { makeStyles } from "@material-ui/styles";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useActions } from "../actions";
-import * as UserActions from "../actions/todo";
+import * as UserActions from "../actions/user";
 import { User } from "../model";
 import { RootState } from "../reducers";
 

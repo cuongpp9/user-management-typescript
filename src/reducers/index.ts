@@ -1,7 +1,7 @@
 import { History } from "history";
 import { combineReducers } from "redux";
 import { User } from "../model";
-import * as userReducer from "./todo";
+import * as userReducer from "./user";
 
 export interface RootState {
 	userList: User[];

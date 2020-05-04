@@ -20,6 +20,5 @@ export const userList = createReducer<User[]>([], {
 	},
 	[UserActions.GET_LIST_USER_SUCCESS](state: User[], action: UserAction) {
 		return state;
-		
 	},
 });

@@ -13,25 +13,25 @@ import { makeStyles } from "@material-ui/styles";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useActions } from "../actions";
-import * as TodoActions from "../actions/todo";
+import * as UserActions from "../actions/todo";
 import { User } from "../model";
 import { RootState } from "../reducers";
 
 export function TodoTable() {
 	const classes = useStyles();
 	const userList = useSelector((state: RootState) => state.userList);
-	const todoActions = useActions(TodoActions);
+	const userActions = useActions(UserActions);
 
 	const onRowClick = (user: User) => {
 		if (user.id) {
-			todoActions.uncompleteTodo(user.id);
+			userActions.uncompleteTodo(user.id);
 		} else {
-			todoActions.completeTodo(user.id);
+			userActions.completeTodo(user.id);
 		}
 	};
 
 	useEffect(() => {
-		todoActions.getListUser("");
+		userActions.getListUser("");
 	});
 
 	return (
@@ -71,7 +71,7 @@ export function TodoTable() {
 										aria-label="Delete"
 										color="default"
 										onClick={() =>
-											todoActions.deleteTodo(user.id)
+											userActions.deleteUser(user.id)
 										}
 									>
 										<DeleteIcon />

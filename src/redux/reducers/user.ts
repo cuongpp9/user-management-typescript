@@ -1,4 +1,4 @@
-import { UserAction, UserActions, User } from "../model";
+import { UserAction, UserActions, User } from "../../model";
 import createReducer from "./createReducer";
 
 export const userList = createReducer<User[]>([], {

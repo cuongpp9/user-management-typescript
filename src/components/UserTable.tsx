@@ -1,5 +1,4 @@
 import {
-	Checkbox,
 	IconButton,
 	Paper,
 	Table,
@@ -9,37 +8,33 @@ import {
 	TableRow,
 } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { makeStyles } from "@material-ui/styles";
+import EditIcon from "@material-ui/icons/Edit";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useActions } from "../actions";
-import * as UserActions from "../actions/user";
+import { useActions } from "../redux/actions";
+import * as UserActions from "../redux/actions/user";
 import { User } from "../model";
-import { RootState } from "../reducers";
+import { RootState } from "../redux/reducers";
 
-export function UserTable() {
-	const classes = useStyles();
+interface Props {
+	onEditUser: Function;
+}
+
+export function UserTable(props: Props) {
+	const { onEditUser } = props;
 	const userList = useSelector((state: RootState) => state.userList);
 	const userActions = useActions(UserActions);
 
-	const onRowClick = (user: User) => {
-		if (user.id) {
-			userActions.uncompleteTodo(user.id);
-		} else {
-			userActions.completeTodo(user.id);
-		}
-	};
-
 	useEffect(() => {
 		userActions.getListUser("");
-	},[]);
+	}, []);
 
 	return (
-		<Paper className={classes.paper}>
-			<Table className={classes.table}>
+		<Paper>
+			<Table>
 				<TableHead>
 					<TableRow>
-						<TableCell padding="default">Select</TableCell>
+						<TableCell padding="default">Edit</TableCell>
 						<TableCell padding="default">ID</TableCell>
 						<TableCell padding="default">Username</TableCell>
 						<TableCell padding="default">Email</TableCell>
@@ -49,13 +44,15 @@ export function UserTable() {
 				<TableBody>
 					{userList.map((user: User) => {
 						return (
-							<TableRow
-								key={user.id.toString()}
-								hover
-								onClick={(event) => onRowClick(user)}
-							>
+							<TableRow key={user.id.toString()} hover>
 								<TableCell padding="none">
-									<Checkbox checked={false} />
+									<IconButton
+										aria-label="Delete"
+										color="default"
+										onClick={() => onEditUser(user)}
+									>
+										<EditIcon />
+									</IconButton>
 								</TableCell>
 								<TableCell padding="none">
 									{user.id.toString()}
@@ -85,14 +82,3 @@ export function UserTable() {
 		</Paper>
 	);
 }
-
-const useStyles = makeStyles({
-	paper: {
-		width: "100%",
-		minWidth: 260,
-		display: "inline-block",
-	},
-	table: {
-		width: "100%",
-	},
-});

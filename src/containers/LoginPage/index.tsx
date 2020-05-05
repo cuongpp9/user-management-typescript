@@ -17,7 +17,6 @@ export function LoginPage() {
 			<FormGroup onSubmit={onHandleSubmit}>
 				<Grid
 					container
-					// spacing={0}
 					direction="column"
 					alignItems="center"
 					className="form-container"

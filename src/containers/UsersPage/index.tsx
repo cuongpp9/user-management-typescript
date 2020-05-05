@@ -6,13 +6,16 @@ import {
 	Grid,
 	Button,
 } from "@material-ui/core";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import * as React from "react";
+import { useHistory } from 'react-router-dom';
 import { UserDialog, UserTable } from "../../components";
 
 export function UserList() {
 	const [open, setOpen] = React.useState(false);
 	const [isEditUser, setIsEdit] = React.useState(false);
 	const [user, setUserEdit] = React.useState({});
+	const history = useHistory();
 	const handleClose = () => {
 		setOpen(false);
 	};
@@ -41,11 +44,27 @@ export function UserList() {
 					<Typography variant="h6" noWrap>
 						User Management
 					</Typography>
+					<Button
+						// variant="contained"
+						color="secondary"
+						onClick={() => {
+							localStorage.clear();
+							history.push('/login')
+						}}
+						className="btn-right"
+					>
+						<ExitToAppIcon/>
+					</Button>
 				</Toolbar>
 			</AppBar>
 			<div className="table-user">
 				<Grid container>
-					<UserDialog open={open} isEditUser={isEditUser} user={user} onClose={handleClose} />
+					<UserDialog
+						open={open}
+						isEditUser={isEditUser}
+						user={user}
+						onClose={handleClose}
+					/>
 					<Grid item xs={6}>
 						<Typography variant="h4" gutterBottom>
 							User List

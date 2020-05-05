@@ -44,6 +44,7 @@ export function LoginPage() {
 							<TextField
 								id="standard-basic"
 								label="password"
+								type="password"
 								fullWidth
 								value={password || ""}
 								onChange={(evt) =>

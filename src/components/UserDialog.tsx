@@ -4,10 +4,8 @@ import {
 	DialogContent,
 	DialogTitle,
 	TextField,
-	DialogContentText,
 	DialogActions,
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
 import * as React from "react";
 import { useActions } from "../redux/actions";
 import * as UserActions from "../redux/actions/user";
@@ -88,10 +86,3 @@ export function UserDialog(props: Props) {
 		</Dialog>
 	);
 }
-
-const useStyles = makeStyles({
-	textField: {
-		width: "80%",
-		margin: 20,
-	},
-});
